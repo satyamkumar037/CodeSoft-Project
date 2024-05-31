@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 public class Transactions extends JFrame implements ActionListener
 {
-    JButton deposit , withdrawl , fastcash , ministatement , pinchange , balance , exit;
+    JButton deposit , withdrawl , fastcash , ministatement , pinchange , balance , exit , userinfo;
     String pinno;
     Transactions(String pinno)
     {
@@ -62,6 +62,12 @@ public class Transactions extends JFrame implements ActionListener
         balance.addActionListener(this);
         image.add(balance );
         
+        userinfo = new JButton("User Information");
+        userinfo .setBounds(170 , 520 , 150 , 30 );
+        userinfo .setBackground(Color.WHITE);
+        userinfo.addActionListener(this);
+        image.add(userinfo );
+        
         exit = new JButton("Exit");
         exit .setBounds(355, 520 , 150 , 30 );
         exit .setBackground(Color.WHITE);
@@ -109,6 +115,11 @@ public class Transactions extends JFrame implements ActionListener
         {
            // setVisible(false);
             new MiniStatement(pinno).setVisible(true);
+        }
+         else if(e.getSource() == userinfo)
+        {
+           // setVisible(false);
+            new UserInfo().setVisible(true);
         }
     }
 
